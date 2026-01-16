@@ -1,5 +1,5 @@
 // assets/scripts/menu.js
-import { PALETA } from "./palette.js"; 
+import { PALETA } from "./data/palette.js"; 
 
 import { UiTrophies } from "./menus/ui_trophies.js";
 import { UiSave } from "./menus/ui_save.js";

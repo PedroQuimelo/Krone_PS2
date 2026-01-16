@@ -1,6 +1,6 @@
 // assets/scripts/ui_trophies.js
 import { Conquistas } from "../achievements.js"; 
-import { PALETA } from "../palette.js"; 
+import { PALETA } from "../data/palette.js"; 
 
 export const UiTrophies = {
     // Estado interno DESTA tela

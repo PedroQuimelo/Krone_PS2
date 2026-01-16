@@ -1,10 +1,10 @@
 // scripts/achievements.js
-import { SaveSystem } from "./save.js"; // Importa pra poder salvar global
-import { LISTA_CONQUISTAS } from "./data_achievements.js"; // <--- Importa os dados
+import { SaveSystem } from "./systems/save.js"; // Importa pra poder salvar global
+import { LISTA_CONQUISTAS } from "./data/data_achievements.js"; // <--- Importa os dados
 
 // Caminho corrigido baseado no seu print
 // assets/sprites/achiviments_png/trofy_gold.png
-const imgTrofeu = new Image("assets/sprites/achiviments_png/trofy_gold.png");
+const imgTrofeu = new Image("assets/sprites/UI/trofy_gold.png");
 
 const POPUP_CONF = {
     Y_FIXO: 10, X_ALVO: 10, X_INICIAL: -300,

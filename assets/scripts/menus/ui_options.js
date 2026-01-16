@@ -1,5 +1,5 @@
 // assets/scripts/menus/ui_options.js
-import { PALETA } from "../palette.js"; 
+import { PALETA } from "../data/palette.js"; 
 
 export const UiOptions = {
     // Estado interno

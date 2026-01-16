@@ -1,6 +1,6 @@
 // assets/scripts/menus/ui_save.js
-import { SaveSystem } from "../save.js"; 
-import { PALETA } from "../palette.js"; 
+import { SaveSystem } from "../systems/save.js"; 
+import { PALETA } from "../data/palette.js"; 
 
 export const UiSave = {
     // Estado interno (Cursor e Variáveis)
