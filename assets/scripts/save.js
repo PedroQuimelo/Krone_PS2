@@ -4,6 +4,10 @@ export const SaveSystem = {
     unidadeAtual: "mc0:", 
     pasta: "/NINJA_TCC", 
     
+
+    // Arquivo separado só para conquistas
+    arquivoGlobal: "achievements.json",
+
     slots: [
         { nome: "slot_0.json", existe: false, dados: null },
         { nome: "slot_1.json", existe: false, dados: null },
@@ -26,6 +30,51 @@ export const SaveSystem = {
     getCaminhoArquivo: function(indice) {
         return this.getCaminhoPasta() + "/" + this.slots[indice].nome;
     },
+
+    // Caminho do arquivo de conquistas
+    getCaminhoGlobal: function() {
+        return this.getCaminhoPasta() + "/" + this.arquivoGlobal;
+    },
+
+
+    // --- FUNÇÕES GLOBAIS (CONQUISTAS) ---
+    salvarConquistas: function(dadosConquistas) {
+        const caminho = this.getCaminhoGlobal();
+        const textoJSON = JSON.stringify(dadosConquistas);
+
+        try {
+            if (typeof os !== 'undefined' && os.mkdir) {
+                os.mkdir(this.getCaminhoPasta());
+            }
+            let file = std.open(caminho, "w");
+            if (file) {
+                file.puts(textoJSON);
+                file.close();
+                print("Conquistas atualizadas no MC.");
+                return true;
+            }
+        } catch(e) {
+            print("Erro ao salvar conquistas: " + e);
+        }
+        return false;
+    },
+
+    carregarConquistas: function() {
+        const caminho = this.getCaminhoGlobal();
+        let file = std.open(caminho, "r");
+        
+        if (file) {
+            let texto = file.readAsString();
+            file.close();
+            if (texto && texto.length > 2) {
+                try {
+                    return JSON.parse(texto);
+                } catch(e) {}
+            }
+        }
+        return null; // Retorna null se não tiver arquivo (primeira vez jogando)
+    },
+
 
     // --- ESCANEAR ---
     escanearSlots: function() {

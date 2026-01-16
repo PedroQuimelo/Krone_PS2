@@ -1,5 +1,6 @@
 // scripts/achievements.js
-import { COLORS } from "./config.js";
+import { SaveSystem } from "./save.js"; // Importa pra poder salvar global
+import { LISTA_CONQUISTAS } from "./data_achievements.js"; // <--- Importa os dados
 
 // Caminho corrigido baseado no seu print
 // assets/sprites/achiviments_png/trofy_gold.png
@@ -70,21 +71,40 @@ export const Notificacao = {
 
 // Exportando Gerenciador
 export const Conquistas = {
-    lista: {
-        "PULO_1": { titulo: "Saltitante", feito: false },
-        "PULO_DUPLO": { titulo: "Novas Alturas", feito: false },
-        "DASH_1": { titulo: "Veloz como a Luz", feito: false },
-        "ANDAR":  { titulo: "Maratonista", feito: false }
+    // Agora é um ARRAY (Lista ordenada)
+    lista: LISTA_CONQUISTAS,
+
+    // --- NOVO: Carregar do MC ao iniciar ---
+    carregar: function() {
+        let globalData = SaveSystem.carregarConquistas();
+        if (globalData && Array.isArray(globalData)) {
+            // Lógica inteligente: Percorre a lista atual e só puxa o 'feito' do save
+            // Assim as descrições novas não somem
+            for (let i = 0; i < this.lista.length; i++) {
+                // Procura esse ID no save
+                for (let j = 0; j < globalData.length; j++) {
+                    if (globalData[j].id === this.lista[i].id) {
+                        this.lista[i].feito = globalData[j].feito;
+                        break;
+                    }
+                }
+            }
+            print("Conquistas globais carregadas e sincronizadas!");
+        }
     },
 
-    desbloquear: function(id) {
-        let item = this.lista[id];
-        if (item && !item.feito) {
-            print("DESBLOQUEOU: " + item.titulo);
-            item.feito = true;
-            Notificacao.mostrar(item.titulo, "Conquista Desbloqueada");
-            return true; // Retorna true para avisar que precisa salvar
+    desbloquear: function(idAlvo) {
+        for (let i = 0; i < this.lista.length; i++) {
+            if (this.lista[i].id === idAlvo) {
+                let item = this.lista[i];
+                if (!item.feito) {
+                    item.feito = true;
+                    Notificacao.mostrar(item.titulo, "Conquista Desbloqueada");
+                    return true;
+                }
+                return false; 
+            }
         }
-        return false;
+        return false; 
     }
 };
