@@ -1,0 +1,35 @@
+name: Gerar ISO PS2 Automaticamente
+
+# Isso diz pro robô: "Acorde sempre que o Pedro criar uma nova Release (v3, v4...)"
+on:
+  release:
+    types: [created]
+
+permissions:
+  contents: write
+
+jobs:
+  build-iso:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. O Robô baixa os arquivos do seu repositório
+      - name: Baixar Código do Jogo
+        uses: actions/checkout@v3
+
+      # 2. O Robô instala o programa de criar ISO (genisoimage)
+      - name: Instalar Ferramenta de ISO
+        run: sudo apt-get update && sudo apt-get install -y genisoimage
+
+      # 3. O Robô roda o comando de criar a ISO (excluindo o lixo do git)
+      - name: Criar Arquivo .ISO
+        run: |
+          mkisofs -o Krone_Ruinas.iso -R -J -V "KRONE_PS2" \
+          -exclude .git \
+          -exclude .github \
+          .
+
+      # 4. O Robô pega a ISO pronta e anexa lá na página de download da Release
+      - name: Upload da ISO para o GitHub
+        uses: softprops/action-gh-release@v1
+        with:
+          files: Krone_Ruinas.iso
