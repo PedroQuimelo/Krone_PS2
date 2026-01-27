@@ -23,3 +23,15 @@ O sistema de persistência (`systems/save.js`) opera da seguinte forma:
 * **Save:** O objeto `gameData` é convertido para JSON e depois para binário.
 * **Storage:** Os dados são gravados no Memory Card (mc0:/) em blocos de 16KB.
 * **Load:** Ao iniciar, o sistema busca o arquivo assinado na raiz do Memory Card.
+### Diagrama de Estados (FSM)
+Como o jogo navega entre as telas:
+
+```mermaid
+stateDiagram-v2
+    [*] --> Boot
+    Boot --> Menu: Carregar Assets
+    Menu --> Jogo: Novo Jogo
+    Jogo --> Pause: Start
+    Pause --> Jogo: Start
+    Pause --> Menu: Sair
+    Jogo --> [*]: Game Over
