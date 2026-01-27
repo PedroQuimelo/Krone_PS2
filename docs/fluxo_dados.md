@@ -33,9 +33,23 @@ Este diagrama detalha o que acontece no `main.js` a cada frame (60 vezes por seg
 
 ```mermaid
 graph TD
-    A[Inicio do Frame] -->|1| B(Ler Controles)
-    B -->|2| C(Calcular Lógica e Colisão)
-    C -->|3| D(Limpar Tela)
-    D -->|4| E(Desenhar Sprites)
-    E -.->|Repetir| A
+    %% Nós do diagrama
+    Start([Início do Frame])
+    Input[Ler Controles / Input]
+    Logic[Atualizar Lógica e Física]
+    Clear[Limpar Tela]
+    Draw[Desenhar Sprites]
+
+    %% Conexões
+    Start --> Input
+    Input --> Logic
+    Logic --> Clear
+    Clear --> Draw
+    
+    %% O Loop
+    Draw -.->|Repetir 60x por seg| Start
+
+    %% Estilização (Opcional, deixa as caixas bonitas)
+    style Start fill:#f9f,stroke:#333,stroke-width:2px
+    style Draw fill:#bbf,stroke:#333,stroke-width:2px
 ```
