@@ -38,12 +38,4 @@ graph TD
     C -->|3| D(Limpar Tela)
     D -->|4| E(Desenhar Sprites)
     E -.->|Repetir| A
-
-    loop A cada Frame
-        Main->>Update: Ler Controles (Input)
-        Main->>Update: Atualizar Posição Player
-        Main->>Update: Checar Colisões
-        Main->>Draw: Limpar Tela
-        Main->>Draw: Desenhar Sprites
-    end
 ```
