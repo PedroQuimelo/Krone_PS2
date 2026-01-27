@@ -32,10 +32,12 @@ stateDiagram-v2
 Este diagrama detalha o que acontece no `main.js` a cada frame (60 vezes por segundo):
 
 ```mermaid
-sequenceDiagram
-    participant Main as Main.js
-    participant Update as Systems (Lógica)
-    participant Draw as Render (Tela)
+graph TD
+    A[Inicio do Frame] -->|1| B(Ler Controles)
+    B -->|2| C(Calcular Lógica e Colisão)
+    C -->|3| D(Limpar Tela)
+    D -->|4| E(Desenhar Sprites)
+    E -.->|Repetir| A
 
     loop A cada Frame
         Main->>Update: Ler Controles (Input)
