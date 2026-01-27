@@ -49,7 +49,7 @@ graph TD
     %% O Loop
     Draw -.->|Repetir 60x por seg| Start
 
-    %% Estilização (Opcional, deixa as caixas bonitas)
-    style Start fill:#f9f,stroke:#333,stroke-width:2px
-    style Draw fill:#bbf,stroke:#333,stroke-width:2px
+    %% --- SUBSTITA APENAS ESSAS DUAS LINHAS ---
+    style Start fill:#0a0a45,color:#00e5ff,stroke:#00e5ff,stroke-width:2px
+    style Draw fill:#1a237e,color:#ffffff,stroke:#ffffff,stroke-width:2px
 ```
