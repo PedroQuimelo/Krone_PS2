@@ -1,73 +1,25 @@
-# Krone: Ruínas Ancestrais (PS2)
+# 🧠 Arquitetura e Fluxo de Dados
 
-Um jogo de ação e aventura 2D desenvolvido para PlayStation 2 utilizando o motor **AthenaEnv** (JavaScript).
+Este documento descreve como os dados fluem dentro do jogo **Krone: Ruínas Ancestrais**, desde a inicialização até o loop de jogo.
 
-![Status](https://img.shields.io/badge/Status-Em_Desenvolvimento-yellow) ![Plataforma](https://img.shields.io/badge/Plataforma-PlayStation_2-blue)
+## 1. Estrutura de Pastas
+A organização do código segue o padrão de separação por responsabilidade:
 
-## 📖 Documentação Técnica
-Para entender como o jogo funciona por baixo do capô, consulte nossa documentação:
+* **`/states`**: Máquina de estados (Menu, Jogo, Pause).
+* **`/systems`**: Gerenciadores globais (Input, Save, Config).
+* **`/entities`**: Objetos do jogo (Player, Inimigos).
+* **`/data`**: Dados estáticos (Conquistas, Paletas de cores).
 
-* **[🧠 Fluxo de Dados e Arquitetura](./docs/fluxo_dados.md)**: Entenda como funciona a Máquina de Estados e o Game Loop.
+## 2. O Ciclo de Vida (Game Loop)
+O ponto de entrada é o arquivo `main.js`, que inicializa o motor AthenaEnv e carrega o primeiro estado.
 
-## 🎮 Como Jogar
-1. Baixe a ISO mais recente na aba **Releases**.
-2. Execute no emulador PCSX2 ou grave em um DVD para jogar no console real.
+### Fluxo de Inicialização:
+1.  **Boot (`main.js`):** Carrega as configurações iniciais.
+2.  **State Manager:** Define o estado inicial como `state_menu.js`.
+3.  **Render Loop:** O motor chama a função `Update()` e `Draw()` do estado ativo a cada frame (60 FPS).
 
----
-
-## 🤝 Contribuição
-Contribuições são bem-vindas!
-1. Faça um Fork do projeto.
-2. Crie sua Feature Branch.
-3. Abra um Pull Request.
-
-## 📄 Licença e Créditos
-Distribuído sob a licença **MIT**. Veja o arquivo `LICENSE` para mais detalhes.
-
-**Agradecimentos Especiais:**
-* **[AthenaEnv](https://github.com/DanielSant0s/AthenaEnv):** Pelo motor incrível.
-* **Comunidade PS2DEV:** Pelo suporte contínuo ao console.
-
-### Diagrama de Estados (FSM)
-Como o jogo navega entre as telas:
-
-```mermaid
-stateDiagram-v2
-    [*] --> Boot
-    Boot --> Menu: Carregar Assets
-    Menu --> Jogo: Novo Jogo
-    Jogo --> Pause: Start
-    Pause --> Jogo: Start
-    Pause --> Menu: Sair
-    Jogo --> [*]: Game Over
-
-    ### 2. Diagrama de Sequência (Game Loop) 🔄
-**Onde está no seu código:** Arquivo `main.js` e o motor Athena.
-**O que é:** Mostra a ordem que as coisas acontecem a cada frame (60 vezes por segundo).
-
-**Como colocar no GitHub:**
-
-```markdown
-### O Game Loop (Ciclo de Vida)
-O que acontece a cada frame (1/60s):
-
-```mermaid
-sequenceDiagram
-    participant Main as Main.js
-    participant Update as Systems (Lógica)
-    participant Draw as Render (Tela)
-
-    loop A cada Frame
-        Main->>Update: Ler Controles (Input)
-        Main->>Update: Atualizar Posição Player
-        Main->>Update: Checar Colisões
-        Main->>Draw: Limpar Tela
-        Main->>Draw: Desenhar Sprites
-    end
-
-    ### 3. ECS (Entity Component System) 🧩
-**Onde está no seu código:** Pastas `/entities` e `/systems`.
-**O que é:** É a arquitetura moderna de jogos.
-* **Entities:** O Player, o Inimigo (são apenas "coisas" com ID).
-* **Components:** Vida, Posição, Sprite (são os dados).
-* **Systems:** `input.js`, `physics.js` (são o código que mexe nos dados).
+## 3. Gerenciamento de Dados (Save/Load)
+O sistema de persistência (`systems/save.js`) opera da seguinte forma:
+* **Save:** O objeto `gameData` é convertido para JSON e depois para binário.
+* **Storage:** Os dados são gravados no Memory Card (mc0:/) em blocos de 16KB.
+* **Load:** Ao iniciar, o sistema busca o arquivo assinado na raiz do Memory Card.
