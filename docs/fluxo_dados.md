@@ -35,3 +35,27 @@ stateDiagram-v2
     Pause --> Jogo: Start
     Pause --> Menu: Sair
     Jogo --> [*]: Game Over
+
+### 2. Diagrama de Sequência (Game Loop) 🔄
+**Onde está no seu código:** Arquivo `main.js` e o motor Athena.
+**O que é:** Mostra a ordem que as coisas acontecem a cada frame (60 vezes por segundo).
+
+**Como colocar no GitHub:**
+
+```markdown
+### O Game Loop (Ciclo de Vida)
+O que acontece a cada frame (1/60s):
+
+```mermaid
+sequenceDiagram
+    participant Main as Main.js
+    participant Update as Systems (Lógica)
+    participant Draw as Render (Tela)
+
+    loop A cada Frame
+        Main->>Update: Ler Controles (Input)
+        Main->>Update: Atualizar Posição Player
+        Main->>Update: Checar Colisões
+        Main->>Draw: Limpar Tela
+        Main->>Draw: Desenhar Sprites
+    end
