@@ -42,7 +42,6 @@ stateDiagram-v2
 
 **Como colocar no GitHub:**
 
-```markdown
 ### O Game Loop (Ciclo de Vida)
 O que acontece a cada frame (1/60s):
 
