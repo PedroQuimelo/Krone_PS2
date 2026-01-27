@@ -24,7 +24,14 @@ stateDiagram-v2
     Pause --> Jogo: Start
     Pause --> Menu: Sair
     Jogo --> [*]: Game Over
+```
 
+---
+
+## 3. Diagrama de Sequência (Game Loop)
+Este diagrama detalha o que acontece no `main.js` a cada frame (60 vezes por segundo):
+
+```mermaid
 sequenceDiagram
     participant Main as Main.js
     participant Update as Systems (Lógica)
@@ -37,3 +44,4 @@ sequenceDiagram
         Main->>Draw: Limpar Tela
         Main->>Draw: Desenhar Sprites
     end
+```
