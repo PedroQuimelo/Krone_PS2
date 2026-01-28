@@ -24,6 +24,12 @@ stateDiagram-v2
     Pause --> Jogo: Start
     Pause --> Menu: Sair
     Jogo --> [*]: Game Over
+
+%% --- ÁREA DE PINTURA ---
+    style Boot fill:#0a0a45,color:#00e5ff,stroke:#00e5ff
+    style Menu fill:#0a0a45,color:#00e5ff,stroke:#00e5ff
+    style Jogo fill:#1a237e,color:#fff,stroke:#fff
+    style Pause fill:#1a237e,color:#fff,stroke:#fff
 ```
 
 ---
