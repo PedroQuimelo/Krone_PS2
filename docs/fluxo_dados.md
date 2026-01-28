@@ -15,6 +15,7 @@ A organização do código segue o padrão de separação por responsabilidade:
 ## 2. Diagrama de Estados (FSM)
 Este diagrama mostra como o jogo navega entre as diferentes telas (`states`):
 
+```mermaid
 graph TD
     %% Nós (Caixas)
     Start((Início)) --> Boot[Boot do Sistema]
@@ -33,7 +34,7 @@ graph TD
     style Menu fill:#0a0a45,color:#00e5ff,stroke:#00e5ff
     style Jogo fill:#004d99,color:#fff,stroke:#fff
     style Pause fill:#550000,color:#fff,stroke:#fff
-
+```
 
 ---
 
