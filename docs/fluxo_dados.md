@@ -32,9 +32,6 @@ graph TD
     %% Saída do Pause (Também vai pra BIOS)
     Pause -->|Sair| BIOS
     
-    %% Game Over
-    Jogo -->|Derrota| GameOver((Game Over))
-    GameOver -.->|Reset| Menu
 
     %% Estilização (Tema Visual)
     style Menu fill:#0a0a45,color:#00e5ff,stroke:#00e5ff
