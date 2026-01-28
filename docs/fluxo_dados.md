@@ -15,30 +15,25 @@ A organização do código segue o padrão de separação por responsabilidade:
 ## 2. Diagrama de Estados (FSM)
 Este diagrama mostra como o jogo navega entre as diferentes telas (`states`):
 
-```mermaid
-stateDiagram-v2
-    direction TB
+graph TD
+    %% Nós (Caixas)
+    Start((Início)) --> Boot[Boot do Sistema]
+    Boot -->|Carregar Assets| Menu[Menu Principal]
     
-    [*] --> Boot
-    Boot --> Menu: Carregar Assets
+    %% Conexões Organizadas
+    Menu -->|Novo Jogo ou Load| Jogo[Gameplay / Jogo]
+    
+    Jogo -->|Start| Pause[Pause]
+    Pause -->|Voltar| Jogo
+    Pause -->|Sair| Menu
+    
+    Jogo -->|Derrota| GameOver((Game Over))
 
-    %% AQUI ESTÁ O TRUQUE: Uma seta só para duas ações
-    Menu --> Jogo: Iniciar (Novo Jogo / Load)
-    
-    %% Fluxo de Pause limpo
-    Jogo --> Pause: Pressionar Start
-    Pause --> Jogo: Voltar ao Jogo
-    
-    %% Saídas
-    Pause --> Menu: Desistir / Sair
-    Jogo --> [*]: Game Over
-
-%% --- ÁREA DE PINTURA ---
-    style Boot fill:#0a0a45,color:#00e5ff,stroke:#00e5ff
+    %% Estilização
     style Menu fill:#0a0a45,color:#00e5ff,stroke:#00e5ff
-    style Jogo fill:#1a237e,color:#fff,stroke:#fff
-    style Pause fill:#1a237e,color:#fff,stroke:#fff
-```
+    style Jogo fill:#004d99,color:#fff,stroke:#fff
+    style Pause fill:#550000,color:#fff,stroke:#fff
+
 
 ---
 
