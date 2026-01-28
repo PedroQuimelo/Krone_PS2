@@ -21,19 +21,27 @@ graph TD
     Start((Início)) --> Boot[Boot do Sistema]
     Boot -->|Carregar Assets| Menu[Menu Principal]
     
-    %% Conexões Organizadas
+    %% Conexões
     Menu -->|Novo Jogo ou Load| Jogo[Gameplay / Jogo]
     
+    %% Ciclo de Pause
     Jogo -->|Start| Pause[Pause]
     Pause -->|Voltar| Jogo
-    Pause -->|Sair| Menu
     
+    %% AQUI A CORREÇÃO: Sair mata o jogo
+    Pause -->|Sair| BIOS((Sair p/ BIOS))
+    
+    %% Game Over
     Jogo -->|Derrota| GameOver((Game Over))
+    GameOver -.->|Reset| Menu
 
-    %% Estilização
+    %% Estilização (Tema Visual)
     style Menu fill:#0a0a45,color:#00e5ff,stroke:#00e5ff
     style Jogo fill:#004d99,color:#fff,stroke:#fff
     style Pause fill:#550000,color:#fff,stroke:#fff
+    
+    %% Estilo diferente para a BIOS (Terminal)
+    style BIOS fill:#000,color:#fff,stroke:#fff,stroke-dasharray: 5 5
 ```
 
 ---
