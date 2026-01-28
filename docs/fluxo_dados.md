@@ -17,29 +17,43 @@ Este diagrama mostra como o jogo navega entre as diferentes telas (`states`):
 
 ```mermaid
 graph TD
-    %% Nós (Caixas)
+    %% Nós Principais
     Start((Início)) --> Boot[Boot do Sistema]
     Boot -->|Carregar Assets| Menu[Menu Principal]
     
-    %% Conexões do Menu
-    Menu -->|Novo Jogo ou Load| Jogo[Gameplay / Jogo]
+    %% --- FLUXO DO MENU ---
+    Menu -->|Jogar| Jogo[Gameplay / Jogo]
     Menu -->|Sair| BIOS((Sair p/ BIOS))
     
-    %% Ciclo de Pause
+    %% Acesso a Telas Auxiliares (Pelo Menu)
+    Menu --> Config[Configurações]
+    Menu --> Trophies[Conquistas]
+
+    %% --- FLUXO DO PAUSE ---
     Jogo -->|Start| Pause[Pause]
     Pause -->|Voltar| Jogo
-    
-    %% Saída do Pause (Também vai pra BIOS)
     Pause -->|Sair| BIOS
     
+    %% Acesso a Telas Auxiliares (Pelo Pause)
+    Pause --> Config
+    Pause --> Trophies
+    
+    %% Voltar (Implícito para não poluir, ou use linhas pontilhadas)
+    Config -.->|Voltar| Menu & Pause
+    Trophies -.->|Voltar| Menu & Pause
 
-    %% Estilização (Tema Visual)
+    %% --- ESTILIZAÇÃO ---
+    %% Fluxo Principal (Azul/PS2)
     style Menu fill:#0a0a45,color:#00e5ff,stroke:#00e5ff
     style Jogo fill:#004d99,color:#fff,stroke:#fff
     style Pause fill:#550000,color:#fff,stroke:#fff
     
-    %% Estilo da BIOS (Terminal Preto)
+    %% Terminal (Preto)
     style BIOS fill:#000,color:#fff,stroke:#fff,stroke-dasharray: 5 5
+    
+    %% Telas Auxiliares (Cinza - Secundárias)
+    style Config fill:#333,color:#ddd,stroke:#ddd
+    style Trophies fill:#333,color:#ddd,stroke:#ddd
 ```
 
 ---
