@@ -19,10 +19,14 @@ Este diagrama mostra como o jogo navega entre as diferentes telas (`states`):
 stateDiagram-v2
     [*] --> Boot
     Boot --> Menu: Carregar Assets
+
+    %% Duas formas de ir para o jogo
     Menu --> Jogo: Novo Jogo
+    Menu --> Jogo: Carregar Save
+
     Jogo --> Pause: Start
-    Pause --> Jogo: Start
-    Pause --> Menu: Sair
+    Pause --> Jogo: Voltar
+    Pause --> Menu: Sair p/ Título
     Jogo --> [*]: Game Over
 
 %% --- ÁREA DE PINTURA ---
