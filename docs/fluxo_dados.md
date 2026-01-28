@@ -83,3 +83,28 @@ graph TD
     style Start fill:#0a0a45,color:#00e5ff,stroke:#00e5ff,stroke-width:2px
     style Draw fill:#1a237e,color:#ffffff,stroke:#ffffff,stroke-width:2px
 ```
+---
+
+## 4. Fluxo de Persistência (Save System)
+Este diagrama ilustra como os dados do jogador saem da memória RAM e são gravados fisicamente no Memory Card (mc0:) do PlayStation 2.
+
+```mermaid
+graph LR
+    %% Nós (Elementos do Sistema)
+    RAM[Jogo Ativo / RAM]
+    Manager{Save Manager}
+    MC[(Memory Card PS2)]
+
+    %% Fluxo de SALVAR (Linha Sólida)
+    RAM -->|1. Coletar GameData| Manager
+    Manager -->|2. Serializar JSON| MC
+
+    %% Fluxo de CARREGAR (Linha Pontilhada)
+    MC -.->|3. Ler Arquivo| Manager
+    Manager -.->|4. Hidratar Dados| RAM
+
+    %% Estilização
+    style RAM fill:#004d99,color:#fff,stroke:#fff
+    style Manager fill:#333,color:#fff,stroke:#fff
+    style MC fill:#black,color:#fff,stroke:#fff,shape:cylinder
+```
