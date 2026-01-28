@@ -17,16 +17,20 @@ Este diagrama mostra como o jogo navega entre as diferentes telas (`states`):
 
 ```mermaid
 stateDiagram-v2
+    direction TB
+    
     [*] --> Boot
     Boot --> Menu: Carregar Assets
 
-    %% Duas formas de ir para o jogo
-    Menu --> Jogo: Novo Jogo
-    Menu --> Jogo: Carregar Save
-
-    Jogo --> Pause: Start
-    Pause --> Jogo: Voltar
-    Pause --> Menu: Sair p/ Título
+    %% AQUI ESTÁ O TRUQUE: Uma seta só para duas ações
+    Menu --> Jogo: Iniciar (Novo Jogo / Load)
+    
+    %% Fluxo de Pause limpo
+    Jogo --> Pause: Pressionar Start
+    Pause --> Jogo: Voltar ao Jogo
+    
+    %% Saídas
+    Pause --> Menu: Desistir / Sair
     Jogo --> [*]: Game Over
 
 %% --- ÁREA DE PINTURA ---
