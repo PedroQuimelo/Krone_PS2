@@ -64,9 +64,10 @@ graph TD
     Start((Início)) --> Boot[Boot do Sistema]
     Boot -->|Carregar Assets| Menu[Menu Principal]
     
-    %% --- FLUXO DO MENU ---
-    Menu -->|Jogar| Jogo[Gameplay / Jogo]
-    Menu -->|Sair| BIOS((Sair p/ BIOS))
+    %% --- FLUXO DO MENU COM INTERMEDIÁRIO ---
+    Menu -->|Selecionar| Check{Check Save}
+    Check -->|Novo Jogo| Jogo[Gameplay / Jogo]
+    Check -->|Save Encontrado| Jogo
     
     %% Acesso a Telas Auxiliares (Pelo Menu)
     Menu --> Config[Configurações]
