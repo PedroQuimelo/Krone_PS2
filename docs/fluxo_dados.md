@@ -22,39 +22,7 @@ A organização do código segue o padrão de separação por responsabilidade:
 ```
 
 
-```mermaid
-mindmap
-  root((Krone Project))
-    📂 states
-      ::(Menu, Jogo, Pause)
-    📂 systems
-      ::(Input, Save, Config)
-    📂 entities
-      ::(Player, Inimigos)
-    📂 data
-      ::(Conquistas, Paletas)
-    📂 menus
-      ::(UI)
-    📜 main.js
-
-```
-
-<details>
-  <summary>📂 <strong>systems</strong> (Clique para expandir)</summary>
-  <ul>
-    <li>📜 <code>config.js</code> - Configurações globais</li>
-    <li>📜 <code>save.js</code> - Lógica do Memory Card</li>
-    <li>📜 <code>input.js</code> - Controle (DualShock 2)</li>
-  </ul>
-</details>
-
-<details>
-  <summary>📂 <strong>states</strong></summary>
-  <ul>
-    <li>📜 <code>state_menu.js</code></li>
-    <li>📜 <code>state_game.js</code></li>
-  </ul>
-</details>
+<details><summary><b>📂 systems</b> (Núcleo Lógico)</summary><blockquote><ul><li>📜 <code>config.js</code> - Configurações de Boot</li><li>📜 <code>save.js</code> - Sistema de Memory Card</li><li>📜 <code>input.js</code> - Mapeamento DualShock 2</li></ul></blockquote></details> <details><summary><b>📂 states</b> (Cenas)</summary><blockquote><ul><li>📜 <code>state_menu.js</code> - Tela Principal</li><li>📜 <code>state_game.js</code> - Gameplay Loop</li></ul></blockquote></details> <details><summary><b>📂 entities</b> (Objetos)</summary><blockquote><ul><li>📜 <code>player.js</code> - Lógica do Herói</li><li>📜 <code>enemies.js</code> - IA Básica</li></ul></blockquote></details>
 
 
 ---
