@@ -68,6 +68,7 @@ graph TD
     Menu -->|Selecionar| Check{Check Save}
     Check -->|Novo Jogo| Jogo[Gameplay / Jogo]
     Check -->|Save Encontrado| Jogo
+    Menu -->|Sair| BIOS((Sair p/ BIOS))
     
     %% Acesso a Telas Auxiliares (Pelo Menu)
     Menu --> Config[Configurações]
