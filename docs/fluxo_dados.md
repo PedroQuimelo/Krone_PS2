@@ -39,6 +39,23 @@ mindmap
 
 ```
 
+<details>
+  <summary>📂 <strong>systems</strong> (Clique para expandir)</summary>
+  <ul>
+    <li>📜 <code>config.js</code> - Configurações globais</li>
+    <li>📜 <code>save.js</code> - Lógica do Memory Card</li>
+    <li>📜 <code>input.js</code> - Controle (DualShock 2)</li>
+  </ul>
+</details>
+
+<details>
+  <summary>📂 <strong>states</strong></summary>
+  <ul>
+    <li>📜 <code>state_menu.js</code></li>
+    <li>📜 <code>state_game.js</code></li>
+  </ul>
+</details>
+
 ---
 
 ## 2. Diagrama de Estados (FSM)
