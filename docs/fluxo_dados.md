@@ -39,6 +39,7 @@ mindmap
 
 ```
 
+```mermaid
 <details>
   <summary>📂 <strong>systems</strong> (Clique para expandir)</summary>
   <ul>
@@ -55,60 +56,8 @@ mindmap
     <li>📜 <code>state_game.js</code></li>
   </ul>
 </details>
-
-```mermaid
-graph TD
-    %% Definindo a Raiz
-    Root[📦 Krone Project]
-
-    %% Definindo as Pastas (Subgrafos)
-    subgraph Core [Núcleo do Sistema]
-        direction TB
-        Sys[📂 systems] --> Save(📜 save.js)
-        Sys --> Input(📜 input.js)
-    end
-
-    subgraph Content [Conteúdo do Jogo]
-        direction TB
-        Ent[📂 entities] --> Player(📜 player.js)
-        States[📂 states] --> Game(📜 state_game.js)
-    end
-
-    %% Conectando
-    Root --> Core
-    Root --> Content
-
-    %% --- CUSTOMIZAÇÃO VISUAL ---
-    %% Pintar pastas de Amarelo e arquivos de Azul
-    style Sys fill:#f9d71c,color:#000,stroke:#333
-    style Ent fill:#f9d71c,color:#000,stroke:#333
-    style States fill:#f9d71c,color:#000,stroke:#333
-    
-    style Save fill:#e1f5fe,color:#000
-    style Input fill:#e1f5fe,color:#000
 ```
 
-```mermaid
-📦 Krone_Ruinas_Ancestrais
- ┣ 📂 data
- ┃ ┣ 📜 data_achievements.js   # Lista de troféus (IDs e Descrições)
- ┃ ┗ 🎨 palette.js             # Cores globais do jogo
- ┃
- ┣ 📂 entities
- ┃ ┣ 👾 player.js              # Lógica do herói
- ┃ ┗ 💀 enemy_base.js          # Classe pai para inimigos
- ┃
- ┣ 📂 systems                  # ⚙️ O "Cérebro" do jogo
- ┃ ┣ 🎮 input.js               # Mapeamento do controle PS2
- ┃ ┣ 💾 save.js                # Sistema de File System (mc0:)
- ┃ ┗ 🔧 config.js              # Configurações de Boot
- ┃
- ┣ 📂 states                   # 🎬 Cenas
- ┃ ┣ 🏁 state_boot.js          # Tela de Splash/Carregamento
- ┃ ┗ ⚔️ state_game.js          # O Loop principal do jogo
- ┃
- ┗ 🚀 main.js                  # Entry Point (Não mexer!)
-```
 ---
 
 ## 2. Diagrama de Estados (FSM)
