@@ -22,8 +22,36 @@ A organização do código segue o padrão de separação por responsabilidade:
 ```
 
 
-<details><summary><b>📂 systems</b> (Núcleo Lógico)</summary><blockquote><ul><li>📜 <code>config.js</code> - Configurações de Boot</li><li>📜 <code>save.js</code> - Sistema de Memory Card</li><li>📜 <code>input.js</code> - Mapeamento DualShock 2</li></ul></blockquote></details> <details><summary><b>📂 states</b> (Cenas)</summary><blockquote><ul><li>📜 <code>state_menu.js</code> - Tela Principal</li><li>📜 <code>state_game.js</code> - Gameplay Loop</li></ul></blockquote></details> <details><summary><b>📂 entities</b> (Objetos)</summary><blockquote><ul><li>📜 <code>player.js</code> - Lógica do Herói</li><li>📜 <code>enemies.js</code> - IA Básica</li></ul></blockquote></details>
+<details open>
+  <summary><b>📂 systems</b> (Núcleo Lógico)</summary>
+  <blockquote>
+    <ul>
+      <li>📜 <code>config.js</code> - Configurações de Boot</li>
+      <li>📜 <code>save.js</code> - Sistema de Memory Card</li>
+      <li>📜 <code>input.js</code> - Mapeamento DualShock 2</li>
+    </ul>
+  </blockquote>
+</details> 
 
+<details open>
+  <summary><b>📂 states</b> (Cenas)</summary>
+  <blockquote>
+    <ul>
+      <li>📜 <code>state_menu.js</code> - Tela Principal</li>
+      <li>📜 <code>state_game.js</code> - Gameplay Loop</li>
+    </ul>
+  </blockquote>
+</details> 
+
+<details open>
+  <summary><b>📂 entities</b> (Objetos)</summary>
+  <blockquote>
+    <ul>
+      <li>📜 <code>player.js</code> - Lógica do Herói</li>
+      <li>📜 <code>enemies.js</code> - IA Básica</li>
+    </ul>
+  </blockquote>
+</details>
 
 ---
 
