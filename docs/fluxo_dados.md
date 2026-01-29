@@ -21,7 +21,8 @@ A organização do código segue o padrão de separação por responsabilidade:
  ┗ 📜 main.js     # Ponto de entrada (Boot)
 ```
 
-```markdown
+
+```mermaid
 mindmap
   root((Krone Project))
     📂 states
