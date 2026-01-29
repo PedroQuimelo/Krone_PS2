@@ -10,6 +10,17 @@ A organização do código segue o padrão de separação por responsabilidade:
 * **`/entities`**: Objetos do jogo (Player, Inimigos).
 * **`/data`**: Dados estáticos (Conquistas, Paletas de cores).
 
+```text
+📦 Krone_Ruinas_Ancestrais
+ ┣ 📂 data        # Dados estáticos (Conquistas, Paletas de cores)
+ ┣ 📂 entities    # Objetos do jogo (Player, Inimigos)
+ ┣ 📂 menus       # Scripts de Interface (UI de Save, Opções)
+ ┣ 📂 states      # Máquina de estados (Menu, Jogo, Pause)
+ ┣ 📂 systems     # Gerenciadores globais (Input, Save, Config)
+ ┣ 📂 sprites     # Arquivos de imagem e texturas
+ ┗ 📜 main.js     # Ponto de entrada (Boot)
+```
+
 ---
 
 ## 2. Diagrama de Estados (FSM)
