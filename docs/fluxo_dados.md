@@ -22,7 +22,6 @@ A organização do código segue o padrão de separação por responsabilidade:
 ```
 
 ```markdown
-```mermaid
 mindmap
   root((Krone Project))
     📂 states
