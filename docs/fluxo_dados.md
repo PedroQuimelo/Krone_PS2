@@ -21,6 +21,24 @@ A organização do código segue o padrão de separação por responsabilidade:
  ┗ 📜 main.js     # Ponto de entrada (Boot)
 ```
 
+```markdown
+```mermaid
+mindmap
+  root((Krone Project))
+    📂 states
+      ::(Menu, Jogo, Pause)
+    📂 systems
+      ::(Input, Save, Config)
+    📂 entities
+      ::(Player, Inimigos)
+    📂 data
+      ::(Conquistas, Paletas)
+    📂 menus
+      ::(UI)
+    📜 main.js
+
+```
+
 ---
 
 ## 2. Diagrama de Estados (FSM)
