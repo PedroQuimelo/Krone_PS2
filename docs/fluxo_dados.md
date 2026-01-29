@@ -39,7 +39,6 @@ mindmap
 
 ```
 ```markdown
-```mermaid
 <details>
   <summary>📂 <strong>systems</strong> (Clique para expandir)</summary>
   <ul>
