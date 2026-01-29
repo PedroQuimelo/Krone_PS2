@@ -38,7 +38,7 @@ mindmap
     📜 main.js
 
 ```
-```markdown
+
 <details>
   <summary>📂 <strong>systems</strong> (Clique para expandir)</summary>
   <ul>
@@ -55,7 +55,7 @@ mindmap
     <li>📜 <code>state_game.js</code></li>
   </ul>
 </details>
-```
+
 
 ---
 
