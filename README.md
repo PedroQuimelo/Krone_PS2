@@ -9,15 +9,34 @@
 
 ---
 
-## 📂 Estrutura do Projeto
-A organização dos arquivos segue o padrão de separação por responsabilidade:
+## 📚 Documentação Técnica
+A arquitetura detalhada, diagramas de estados e fluxo de dados foram movidos para a pasta de documentação para manter este arquivo limpo.
 
-```text
-📦 Krone_Ruinas_Ancestrais
- ┣ 📂 data        # Dados estáticos (Conquistas, Paletas de cores)
- ┣ 📂 entities    # Objetos do jogo (Player, Inimigos)
- ┣ 📂 menus       # Scripts de Interface (UI de Save, Opções)
- ┣ 📂 states      # Máquina de estados (Menu, Jogo, Pause)
- ┣ 📂 systems     # Gerenciadores globais (Input, Save, Config)
- ┣ 📂 sprites     # Arquivos de imagem e texturas
- ┗ 📜 main.js     # Ponto de entrada (Boot)
+* **[📂 Estrutura e Arquitetura](docs/fluxo_dados.md)**: Entenda a organização das pastas, o Game Loop e a Máquina de Estados (FSM).
+* **[💾 Sistema de Save](docs/fluxo_dados.md#4-fluxo-de-persistência-save-system)**: Detalhes sobre como os dados são gravados no Memory Card.
+
+> _Consulte os links acima para visualizar os diagramas Mermaid e a árvore de arquivos completa._
+
+---
+
+## 🛠️ Instalação e Execução
+
+### Pré-requisitos
+* PS2 SDK configurado no ambiente.
+* PCSX2 (Emulador) ou console real com uLaunchELF.
+
+### Compilando
+1.  Clone este repositório:
+    ```bash
+    git clone [https://github.com/seu-usuario/Krone-Ruinas-Ancestrais.git](https://github.com/seu-usuario/Krone-Ruinas-Ancestrais.git)
+    ```
+2.  Compile o projeto:
+    ```bash
+    make
+    ```
+3.  Execute o arquivo `.elf` gerado.
+
+---
+
+## 📝 Licença
+Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
