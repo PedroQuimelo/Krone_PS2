@@ -20,9 +20,9 @@ A organização do código segue o padrão de separação por responsabilidade:
  ┣ 📂 sprites     # Arquivos de imagem e texturas
  ┗ 📜 main.js     # Ponto de entrada (Boot)
 ```
+📂 Navegador Interativo (Clique para expandir)
 
-
-<details open>
+<details>
   <summary><b>📂 systems</b> (Núcleo Lógico)</summary>
   <blockquote>
     <ul>
@@ -33,7 +33,7 @@ A organização do código segue o padrão de separação por responsabilidade:
   </blockquote>
 </details> 
 
-<details open>
+<details>
   <summary><b>📂 states</b> (Cenas)</summary>
   <blockquote>
     <ul>
@@ -43,7 +43,7 @@ A organização do código segue o padrão de separação por responsabilidade:
   </blockquote>
 </details> 
 
-<details open>
+<details>
   <summary><b>📂 entities</b> (Objetos)</summary>
   <blockquote>
     <ul>
