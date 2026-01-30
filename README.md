@@ -22,8 +22,7 @@ A arquitetura detalhada, diagramas de estados e fluxo de dados foram movidos par
 ## 🛠️ Instalação e Execução
 
 ### Pré-requisitos
-* PS2 SDK configurado no ambiente.
-* PCSX2 (Emulador) ou console real com uLaunchELF.
+* PCSX2 (Emulador) ou console real.
 
 ### Compilando
 1.  Clone este repositório:
