@@ -24,16 +24,6 @@ A arquitetura detalhada, diagramas de estados e fluxo de dados foram movidos par
 ### Pré-requisitos
 * PCSX2 (Emulador) ou console real.
 
-### Compilando
-1.  Clone este repositório:
-    ```bash
-    git clone [https://github.com/seu-usuario/Krone-Ruinas-Ancestrais.git](https://github.com/seu-usuario/Krone-Ruinas-Ancestrais.git)
-    ```
-2.  Compile o projeto:
-    ```bash
-    make
-    ```
-3.  Execute o arquivo `.elf` gerado.
 
 ---
 
